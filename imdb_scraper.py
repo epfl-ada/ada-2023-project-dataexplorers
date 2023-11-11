@@ -1,29 +1,31 @@
 # Imbd website scraping
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import re
+import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 class ImdbScraper:
     def __init__(self):
-        # set up the webdriver
-        chrome_options = webdriver.ChromeOptions()
-        #chrome_options.add_argument('--headless')
-        #chrome_options.add_argument("--start-maximized")
-        driver = webdriver.Chrome(options=chrome_options)
+        """
+        Initializes the ImdbScraper class
+        """
+        chrome_options  = webdriver.ChromeOptions()
+        self.driver     = webdriver.Chrome(options=chrome_options)
+    
+    def close(self):
+        """
+        Closes the driver
+        """
+        self.driver.close()
 
-        # access the webpage
-        driver.get("https://www.imdb.com/")
-        self.driver = driver
-
-    def get_imdb_infos(self, movie_name = "The Godfather", close_page=False):
+    def get_imdb_infos(self, movie_id=0):
         """
         Scrapes the IMBD webpage of a movie to extract useful information
 
         Inputs:
-            movie_name (str) : The name of the movie to search for
-            close_page (bool): Whether to close the webpage after scraping or not
+            movie_id (int)              : The movie's wikipedia id
 
         Outputs:
             global_revenue (float)      : The global revenue of the movie
@@ -34,23 +36,28 @@ class ImdbScraper:
             number_of_ratings (float)   : The number of ratings of the movie
             watched_rank (float)        : The watched rank of the movie
             producer (str)              : The producer of the movie
+            release_year (str)          : The release year of the movie
         """
         try:
-            # find the search bar & search button
-            search_bar = self.driver.find_element("xpath", '//*[@id="suggestion-search"]')
-            search_button = self.driver.find_element("xpath", '//*[@id="suggestion-search-button"]')
+            resp = requests.get(f"http://en.wikipedia.org/w/api.php?action=query&prop=info&pageids={movie_id}&inprop=url&format=json")
+            wikipedia_movie_link = resp.json()['query']['pages'][str(movie_id)]['fullurl']
+            html = requests.get(wikipedia_movie_link)
 
-            # search for the movie
-            search_bar.send_keys(movie_name)
-            search_button.click()
+            # find the wikidata link
+            soup = BeautifulSoup(html.text, 'html.parser')
+            tools = soup.find_all('div', {'id': 'vector-page-tools'})
+            wikidata_link = tools[0].find('li', {'id':'t-wikibase'}).find('a')['href']
+            wikidata_html = requests.get(wikidata_link)
 
-            # find the first result
-            first_result = self.driver.find_element("xpath", '//*[@id="__next"]/main/div[2]/div[3]/section/div/div[1]/section[2]/div[2]/ul/li[1]')
-            first_result.click()
+            new_soup = BeautifulSoup(wikidata_html.text, 'html.parser')
+            wiki_imdb = new_soup.find('div', {'id': 'P345'})
+            imdb_id = wiki_imdb.find('div', {'class': 'wikibase-snakview-value wikibase-snakview-variation-valuesnak'}).text
+            imdb_link = "https://www.imdb.com/title/" + str(imdb_id) + "/"
 
-            # parse the resulting webpage
-            html = self.driver.page_source
-            soup = BeautifulSoup(html, 'html.parser')
+            self.driver.get(imdb_link)
+            imdb_html = self.driver.page_source
+
+            soup = BeautifulSoup(imdb_html, 'html.parser')
             box_office = soup.find('div', {'data-testid': "title-boxoffice-section"})
             
             # get global revenue
@@ -95,10 +102,11 @@ class ImdbScraper:
 
             # get number of ratings
             try:
-                number_of_ratings_div   = soup.find('div', {'data-testid' : "hero-rating-bar__aggregate-rating"})
-                number_of_ratings_raw   = number_of_ratings_div.find('div', {'class' : "sc-bde20123-3 bjjENQ"}).text
+                #number_of_ratings_div   = soup.find('div', {'data-testid' : "hero-rating-bar__aggregate-rating"})
+                #number_of_ratings_raw   = number_of_ratings_div.find('div', {'class' : "sc-bde20123-3 bjjENQ"}).text
+                number_of_ratings_raw = soup.find('div', {'class': 'sc-bde20123-3 gPVQxL'}).text
                 number_of_ratings       = float(re.findall(r'\d+.?\d?', number_of_ratings_raw.replace(',', '.').replace('\u202f', ''))[0])
-
+                
                 rating_unit             = number_of_ratings_raw[-1]
                 if (rating_unit=='M'):
                     number_of_ratings   = 1000000*number_of_ratings
@@ -117,26 +125,27 @@ class ImdbScraper:
 
             # get producer
             try:
-                cast_section            = soup.find('section', {"data-testid" : "title-cast"})
-                cast_ul                 = cast_section.find('ul', {"class" : "ipc-metadata-list ipc-metadata-list--dividers-all sc-bfec09a1-8 iiDmgX ipc-metadata-list--base"})
-                cast_raw                = cast_ul.find('a', {'class' : 'ipc-metadata-list-item__list-content-item ipc-metadata-list-item__list-content-item--link'}).text
-                producer                = cast_raw
+                producer                = soup.find("a", {"class":"ipc-metadata-list-item__list-content-item ipc-metadata-list-item__list-content-item--link"}).text
             except:
                 producer                = None
 
+            try:
+                release_year            = soup.find('div', {'class': 'sc-dffc6c81-0 grcyBP'}).find('a', {'class': 'ipc-link ipc-link--baseAlt ipc-link--inherit-color'}).text
+                release_year            = int(release_year)
+            except:
+                release_year            = None
+        
         except:
-            global_revenue              = None
-            budget                      = None
-            gross_domestic              = None
-            opening_weekend             = None
-            rating_score                = None
-            number_of_ratings           = None
-            watched_rank                = None
-            producer                    = None
-
-        # close the webself.driver
-        if (close_page):
-            self.driver.close()
+            global_revenue = None
+            budget = None
+            gross_domestic = None
+            opening_weekend = None
+            rating_score = None
+            number_of_ratings = None
+            watched_rank = None
+            producer = None
+            release_year = None
 
         return {"global_revenue":global_revenue, "budget":budget, "gross_domestic":gross_domestic, "opening_weekend":opening_weekend,
-                "rating_score":rating_score, "number_of_ratings":number_of_ratings, "watched_rank":watched_rank, "producer":producer}
+                "rating_score":rating_score, "number_of_ratings":number_of_ratings, "watched_rank":watched_rank, "producer":producer,
+                "release_year":release_year}
