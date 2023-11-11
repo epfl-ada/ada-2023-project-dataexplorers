@@ -39,21 +39,24 @@ class ImdbScraper:
             release_year (str)          : The release year of the movie
         """
         try:
+            # access wikipedia api to retrieve the link of the page from the wikipedia id
             resp = requests.get(f"http://en.wikipedia.org/w/api.php?action=query&prop=info&pageids={movie_id}&inprop=url&format=json")
             wikipedia_movie_link = resp.json()['query']['pages'][str(movie_id)]['fullurl']
             html = requests.get(wikipedia_movie_link)
 
-            # find the wikidata link
+            # access the movie's wikipedia page and find the link to its wikidata page
             soup = BeautifulSoup(html.text, 'html.parser')
             tools = soup.find_all('div', {'id': 'vector-page-tools'})
             wikidata_link = tools[0].find('li', {'id':'t-wikibase'}).find('a')['href']
             wikidata_html = requests.get(wikidata_link)
 
+            # parse the wikidata page of the movie to find its imdb id
             new_soup = BeautifulSoup(wikidata_html.text, 'html.parser')
             wiki_imdb = new_soup.find('div', {'id': 'P345'})
             imdb_id = wiki_imdb.find('div', {'class': 'wikibase-snakview-value wikibase-snakview-variation-valuesnak'}).text
             imdb_link = "https://www.imdb.com/title/" + str(imdb_id) + "/"
 
+            # access the imdb page of the movie using selenium to parse it & extract useful information
             self.driver.get(imdb_link)
             imdb_html = self.driver.page_source
 
@@ -129,6 +132,7 @@ class ImdbScraper:
             except:
                 producer                = None
 
+            # get release year
             try:
                 release_year            = soup.find('div', {'class': 'sc-dffc6c81-0 grcyBP'}).find('a', {'class': 'ipc-link ipc-link--baseAlt ipc-link--inherit-color'}).text
                 release_year            = int(release_year)
