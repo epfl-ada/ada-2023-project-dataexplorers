@@ -76,6 +76,7 @@ To find the recipe for a good movie, we follow this methodology:
     We log-transform the data and define $x = \log(AMR)$ and $y = MR$
 
     $BORC = \frac{x - \min(x)}{\max(x) - \min(x)}$
+
     $RC = \frac{y - \min(y)}{\max(y) - \min(y)}$
     
     As such, we have $BORC, RC \in [0, 1]$
