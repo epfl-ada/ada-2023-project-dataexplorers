@@ -28,8 +28,8 @@ To answer our research questions, we will be using additional datasets:
   Therefore, a bot that looks for each movie on [IMDb](https://www.imdb.com) and extracts relevant information (e.g.
   ratings, number of ratings,
   revenue in the United States and Canada, global revenue, and revenue on the week of release) was used:
-* To adjust box-office revenue for inflation, we fetched data from the [“US Department of Labor Bureau
-  Statistic”](https://www.usinflationcalculator.com/inflation/consumer-price-index-and-annual-percent-changes-from-1913-to-2008/).
+* To adjust box-office revenue for inflation, we fetched data from the [US Department of Labor Bureau
+  Statistic](https://www.usinflationcalculator.com/inflation/consumer-price-index-and-annual-percent-changes-from-1913-to-2008/).
 * To know which movies were sequels, we used a [dataset with movie-series](https://data.world/priyankad0993/sequels).
 
 # Work Organization
@@ -39,7 +39,7 @@ was little correlation between movie ratings and revenue, we established a movie
 After that, each team member took a specialized aspect and examined if and how it shapes a film’s success or failure in
 terms of the defined score. Aymeric delved into temporal factors and population dynamics, understanding their
 correlation with financial success and viewer opinions. Yara studied genre analysis, as well as the effect of sequels.
-Eric explored inclusivity. Anthony analyzed features like duration and language, while Anton focused on the influence of
+Eric cleaned and explored inclusivity. Anthony analyzed features like duration and language, while Anton focused on the influence of
 actors’ fame. Finally, we brought our insights together and started building the recipe for a good movie. 
 
 
