@@ -1,4 +1,4 @@
-WikiID,Name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
+wikipedia_movie_id,name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
 975900,Ghosts of Mars,14010832.0,28000000.0,8709640.0,3804452.0,4.9,57000.0,3850.0,John Carpenter,2001
 3196793,Getting Away with Murder: The JonBenét Ramsey Mystery,None,None,None,None,6.0,69.0,None,Edward Lucas,2000
 28463795,Brun bitter,None,None,None,None,5.6,40.0,None,Sølve Skagen,1988

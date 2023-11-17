@@ -1,4 +1,4 @@
-WikiID,Name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
+wikipedia_movie_id,name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
 21419781,Before Vanishing,None,None,None,None,None,None,None,None,None
 8368963,Eating Out 2: Sloppy Seconds,37072.0,None,37072.0,4394.0,6.2,4100.0,None,Phillip J. Bartell,2006
 17139107,Sweet Rosie O'Grady,None,1185000.0,None,None,6.2,342.0,None,Irving Cummings,1943
