@@ -1,4 +1,4 @@
-WikiID,Name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
+wikipedia_movie_id,name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
 3769379,Herr Meets Hare,None,None,None,None,7.0,738.0,None,Friz Freleng,None
 20992613,Las Meninas,None,850000.0,None,None,7.1,107.0,None,Ihor Podolchak,None
 31269080,Save a Little Sunshine,None,None,None,None,4.6,31.0,None,Norman Lee,None

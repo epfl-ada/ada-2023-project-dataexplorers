@@ -1,4 +1,4 @@
-WikiID,Name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
+wikipedia_movie_id,name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
 12831299,In the battlefields,None,None,None,None,6.2,222.0,None,Danielle Arbid,None
 22643206,Ulbo Garvema,None,None,None,None,None,None,None,Maurits Binger,None
 16963778,Sundown: The Future of Children and Drugs,None,None,None,None,None,None,None,None,None
