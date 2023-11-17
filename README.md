@@ -23,7 +23,7 @@ To answer our research questions, we will be using additional datasets:
 
 * To study the effects of inclusivity on a movie’s success, we needed actors' information so we scraped
   the [Wikidata](https://query.wikidata.org/sparql)
-  website. The dataset generated includes information about actors’ ethnicity.
+  website. The dataset generated includes information about the actors’ ethnicity.
 * Movie ratings are an important part of our project, yet we have no information about it in the given datasets.
   Therefore, a bot that looks for each movie on [IMDb](https://www.imdb.com) and extracts relevant information (e.g.
   ratings, number of ratings,
@@ -62,12 +62,7 @@ To find the recipe for a good movie, we follow this methodology:
 
 3) Analysis of the correlation between movie revenue and rating
    Film directors define a good or bad movie according to its ratings and the revenue it generates. But are these two
-   elements correlated? In order to answer this question, we conduct the following tests:
-
-    * $\chi^2$ test
-    * T-test
-    * Pearson correlation test
-
+   elements correlated? To answer this question, we conduct a Pearson correlation test and visualize the two distributions
 
 4) Definition of a success score metric that considers both rating and revenue
    Since movie ratings and revenue are not significantly correlated, we define a movie success score metric (Movie
@@ -96,11 +91,11 @@ To find the recipe for a good movie, we follow this methodology:
       |:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | Movie budget                        | Wonder if higher budgets are a gage of qualitative movies.                                                                                                                                                                                                             |
    | Genres                              | Analyze the most successful genres.                                                                                                                                                                                                               |
-   | Ethnic diversity of the cast        | Get insight into the appeal for movies with a diverse cast.                                                                                                                                                                                                               |
+   | Ethnic diversity of the cast        | Get insight into the appeal of movies with a diverse cast.                                                                                                                                                                                                               |
    | Sequels                             | Analyze the popularity of sequels as opposed to prequels.                                                                                                                                                                                                                |
-   | Actors' popularity                  | Define actor's popularity as the sum of movie scores of the previous movies he acted in. Look at the correlation between popularity of the cast and the movie score. |
-   | Movie directors' popularity         | Define director's popularity as the sum of movie scores of the previous movies he directed and study its correlation with the movie score.                                                                                                                                                                                                               |
-   | Sentiment analysis of movie endings | Get insight into the interest for movies with happy endings (and other types of endings).                                                                                                                                                                                                             |
+   | Actors' popularity                  | Define an actor's popularity as the sum of movie scores of the previous movies he acted in. Look at the correlation between the popularity of the cast and the movie score. |
+   | Movie directors' popularity         | Define the director's popularity as the sum of movie scores of the previous movies he directed and study its correlation with the movie score.                                                                                                                                                                                                               |
+   | Sentiment analysis of movie endings | Get insight into the interest in movies with happy endings (and other types of endings).                                                                                                                                                                                                             |
    | Duration                            | Analyze the correlation between movie metadata and its success.                                                                                                                                                                                                               |
    | Language                            | Look into the most successful movie languages.                                                                                                                                                                                                             |
    | Country                             | Analyze whether certain movie settings are more appealing than others.                                                                                                                                                                                                               |
