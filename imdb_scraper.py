@@ -13,7 +13,7 @@ class ImdbScraper:
         """
         chrome_options  = webdriver.ChromeOptions()
         chrome_options.add_argument("--lang=fr")
-        self.driver     = webdriver.Chrome(options=chrome_options)
+        self.driver     = webdriver.Chrome(options=chrome_options, executable_path='./chromedriver/chromedriver.exe')
     
     def close(self):
         """
