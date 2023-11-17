@@ -68,21 +68,27 @@ To find the recipe for a good movie, we follow this methodology:
    Since movie ratings and revenue are not significantly correlated, we define a movie success score metric (Movie
    Score), that considers them both:
 
-   The rating component (RC) is defined as the min-max normalization of the ratings.
+   - $BORC$    : Box Office Revenue Component
+   - $RC$      : Rating Component
 
-   $$RC = \frac{Movie Rating - MinMovieRating]}{MaxMovieRating - MinMovieRating}$$
-
-  The Box Office Revenue Component (BORC) is a bit more complex as box office revenue ranges over multiple orders of magnitude and varies greatly over the years. Firstly, to have comparable revenues, we need to adjust them for inflation. Secondly, to avoid excessively considering outliers, we decide to take the log of these values. As such, we perform the min-max normalization of the log of adjusted revenues. 
-
-   $$BORC = \frac{log(Adjusted Movie Revenue) - log(MinAdjustedMovieRevenue)}{log(MaxAdjustedMovieRevenue) - log(
-   MinAdjustedMovieRevenue)}$$
-
-   Finally, we want our score to be defined as a score over 100 so we perform adequate operations.
-   Here is the final formula:
-
-   $$Movie Score = (BORC + RC) * 50$$
-
-   Only then can we define two classes of good and bad movies by defining a percentage threshold on movie scores.
+    These components can be computed with the Adjusted Movie Revenue (which we write define as $AMR$) and the movie rating (we will write as $MR$)
+        
+    We log-transform the data and define $x = \log(AMR)$ and $y = MR$
+        
+    $
+    \begin{cases}
+       BORC = \frac{x - \min(x)}{\max(x) - \min(x)}\\
+       RC = \frac{y - \min(y)}{\max(y) - \min(y)}
+    \end{cases}
+    $
+    
+    As such, we have $BORC, RC \in [0, 1]$
+    
+    We define a weight $\alpha \in [0, 1]$ and take the convex combinations of $BORC$ and $RC$. This weight controls the importance we give to each of our two components in our metric. Its importance will be determined in the future and we will adjust it accordingly to the study. Multiplying by 100 gives us a final score 
+    
+    $$Movie Score = 100\left(\alpha BORC + (1 - \alpha) RC \right)$$
+    
+    Only then can we define two classes of good and bad movies by defining a percentage threshold on movie scores.
 
 
 4) Find the effect of each feature on the movie’s success score.
