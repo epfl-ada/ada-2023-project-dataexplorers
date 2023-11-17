@@ -1,13 +1,9 @@
 # The formula for a perfect movie
 
-‘The formula for a perfect movie’ is a project whose purpose is to discover what makes a movie great. A dataset composed
-of data collected for over 80,000 movies will be used in this regard. The dataset contains information about the movies
-themselves, as well as the actors performing in them, and it will be completed with data about the movies’ ratings.
+### Abstract:
+‘The Formula for a Perfect Movie’ is a project that aims to uncover the complexity of cinematic success by examining diverse features, including ratings, revenue, genre, inclusivity, and more. Motivated by the nuanced nature of film achievement, we introduce a new Movie Score metric that considers ratings and revenue, providing a robust measure of a movie's success. By validating our findings on a dataset of unseen movies and comparing them with a neural network model, we aim to offer valuable insights into the secrets of successful filmmaking. By considering diverse and valuable data sources, this project seeks to explore the value that can be extracted thanks to Data Science. 
 
-The project will articulate around two main axes. The first part will be about noticing that movie ratings don't
-necessarily correlate with movie revenue, then determining which features impact the revenue made by a movie, and which
-impact its rating. The second step will thus be to combine these two pieces of information into a single metric by
-taking a weighted average of the two, as a great movie has both large revenue and high ratings.
+In our data story, we guide our readers through the investigative processes that were utilized on our journey to detect the key influencers of good movies. As we unravel the insights embedded in the data, we hope that the reader will be encouraged towards introspection, thinking about what they believe makes a successful movie.
 
 # Research questions
 
@@ -44,25 +40,27 @@ After that, each team member took a specialized aspect and examined if and how i
 terms of the defined score. Aymeric delved into temporal factors and population dynamics, understanding their
 correlation with financial success and viewer opinions. Yara studied genre analysis, as well as the effect of sequels.
 Eric explored inclusivity. Anthony analyzed features like duration and language, while Anton focused on the influence of
-actors’ fame. Finally, and based on our analysis, we were able to determine together the recipe for a good movie.
+actors’ fame. Finally, we brought our insights together and started building the recipe for a good movie. 
+
 
 # Methods
 
 To find the recipe for a good movie, we follow this methodology:
 
 1) Data augmentation and processing
+
    One can’t start working with data before cleaning it and preparing it, which is why we carry the following steps:
-   a) Find datasets (e.g. Kaggle, scraping IMDB and Wikidata) containing additional data we need for our project and
+
+   *  Find datasets (e.g. Kaggle, scraping IMDB and Wikidata) containing additional data we need for our project and
    don’t have yet (e.g. movie ratings, inclusivity in movies, inflation, …).
-   b) Fill NaN values for inclusivity with data from more datasets (found online from scraping).
-   c) In the movies datasets, remove the movies without revenue and ratings data.
-   d) Adjust box office revenue to inflation to have comparable values.
-   e) In the actors datasets, remove lasting NaN values for inclusivity data.
-   f) Preprocess the data: convert data in each column into a more convenient format.
-   g) Analyze data balance and decide what to do if imbalanced, depending on the feature being analyzed.
+   *  Fill NaN values for inclusivity with data from more datasets (found online from scraping).
+   *  In the movies datasets, remove the movies without revenue and ratings data.
+   *  Adjust box office revenue to inflation to have comparable values.
+   *  In the actors datasets, remove lasting NaN values for inclusivity data.
+   *  Preprocess the data: convert data in each column into a more convenient format.
+   *  Analyze data balance and decide what to do if imbalanced, depending on the feature being analyzed.
 
-
-2) Analysis of the correlation between movie revenue and rating
+3) Analysis of the correlation between movie revenue and rating
    Film directors define a good or bad movie according to its ratings and the revenue it generates. But are these two
    elements correlated? In order to answer this question, we conduct the following tests:
 
@@ -71,7 +69,7 @@ To find the recipe for a good movie, we follow this methodology:
     * Pearson correlation test
 
 
-3) Definition of a success score metric that considers both rating and revenue
+4) Definition of a success score metric that considers both rating and revenue
    Since movie ratings and revenue are not significantly correlated, we define a movie success score metric (Movie
    Score), that considers them both:
 
@@ -79,12 +77,7 @@ To find the recipe for a good movie, we follow this methodology:
 
    $$RC = \frac{Movie Rating - MinMovieRating]}{MaxMovieRating - MinMovieRating}$$
 
-   The Box Office Revenue Component (BORC) is a bit more complex as box office revenue ranges over multiple orders of
-   magnitude and varies greatly over the years. Firstly, to have comparable revenues, we need to adjust them for
-   inflation.
-   Secondly, to avoid excessively considering outliers, we decide to take the log of these values. As such, we perform
-   the
-   min-max normalization of the ratings.
+  The Box Office Revenue Component (BORC) is a bit more complex as box office revenue ranges over multiple orders of magnitude and varies greatly over the years. Firstly, to have comparable revenues, we need to adjust them for inflation. Secondly, to avoid excessively considering outliers, we decide to take the log of these values. As such, we perform the min-max normalization of the log of adjusted revenues. 
 
    $$BORC = \frac{log(Adjusted Movie Revenue) - log(MinAdjustedMovieRevenue)}{log(MaxAdjustedMovieRevenue) - log(
    MinAdjustedMovieRevenue)}$$
@@ -94,7 +87,7 @@ To find the recipe for a good movie, we follow this methodology:
 
    $$Movie Score = (BORC + RC) * 50$$
 
-   We also define two classes: good and bad movies by defining a percentage threshold on movie scores.
+   Only then can we define two classes of good and bad movies by defining a percentage threshold on movie scores.
 
 
 4) Find the effect of each feature on the movie’s success score.
