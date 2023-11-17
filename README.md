@@ -25,10 +25,12 @@ In this project, we aim to tackle the following research questions:
 
 To answer our research questions, we will be using additional datasets:
 
-* To study the effects of inclusivity on a movie’s success, we needed actors' information so we scraped the [Wikidata](https://query.wikidata.org/sparql)
+* To study the effects of inclusivity on a movie’s success, we needed actors' information so we scraped
+  the [Wikidata](https://query.wikidata.org/sparql)
   website. The dataset generated includes information about actors’ ethnicity.
 * Movie ratings are an important part of our project, yet we have no information about it in the given datasets.
-  Therefore, a bot that looks for each movie on [IMDb](https://www.imdb.com) and extracts relevant information (e.g. ratings, number of ratings,
+  Therefore, a bot that looks for each movie on [IMDb](https://www.imdb.com) and extracts relevant information (e.g.
+  ratings, number of ratings,
   revenue in the United States and Canada, global revenue, and revenue on the week of release) was used:
 * To adjust box-office revenue for inflation, we fetched data from the [“US Department of Labor Bureau
   Statistic”](https://www.usinflationcalculator.com/inflation/consumer-price-index-and-annual-percent-changes-from-1913-to-2008/).
@@ -58,6 +60,8 @@ To find the recipe for a good movie, we follow this methodology:
    e) In the actors datasets, remove lasting NaN values for inclusivity data.
    f) Preprocess the data: convert data in each column into a more convenient format.
    g) Analyze data balance and decide what to do if imbalanced, depending on the feature being analyzed.
+
+
 2) Analysis of the correlation between movie revenue and rating
    Film directors define a good or bad movie according to its ratings and the revenue it generates. But are these two
    elements correlated? In order to answer this question, we conduct the following tests:
@@ -65,6 +69,7 @@ To find the recipe for a good movie, we follow this methodology:
     * $\chi^2$ test
     * T-test
     * Pearson correlation test
+
 
 3) Definition of a success score metric that considers both rating and revenue
    Since movie ratings and revenue are not significantly correlated, we define a movie success score metric (Movie
@@ -91,20 +96,22 @@ To find the recipe for a good movie, we follow this methodology:
 
    We also define two classes: good and bad movies by defining a percentage threshold on movie scores.
 
+
 4) Find the effect of each feature on the movie’s success score.
 
-   | Feature                             | Description |
-   |:------------------------------------|:------------|
-   | Duration                            | TODO        |
-   | Language                            | TODO        |
-   | Country                             | TODO        |
-   | Movie budget                        | TODO        |
-   | Genres                              | TODO        |
-   | Ethnic diversity of the cast        | TODO        |
-   | Sequels                             | TODO        |
-   | Actors' popularity                  | TODO        |
-   | Movie directors' popularity         | TODO        |
-   | Sentiment analysis of movie endings | TODO        |
+   | Feature                             | Description                                                                                                                                                                                                         |
+      |:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Duration                            | TODO                                                                                                                                                                                                                |
+   | Language                            | TODO                                                                                                                                                                                                                |
+   | Country                             | TODO                                                                                                                                                                                                                |
+   | Movie budget                        | TODO                                                                                                                                                                                                                |
+   | Genres                              | TODO                                                                                                                                                                                                                |
+   | Ethnic diversity of the cast        | TODO                                                                                                                                                                                                                |
+   | Sequels                             | TODO                                                                                                                                                                                                                |
+   | Actors' popularity                  | Define actor's popularity for the moment of movie release as the sum of movie scores of the previous movies he was in cast of. Look at the correlation between combined popularity of the cast and the movie score. |
+   | Movie directors' popularity         | TODO                                                                                                                                                                                                                |
+   | Sentiment analysis of movie endings | TODO                                                                                                                                                                                                                |
+
 
 5) Finally, a recipe for good movies …
 
