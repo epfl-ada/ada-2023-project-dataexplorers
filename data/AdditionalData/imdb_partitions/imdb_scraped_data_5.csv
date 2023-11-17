@@ -1,4 +1,4 @@
-WikiID,Name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
+wikipedia_movie_id,name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
 17489457,Moscowin Kaveri,None,None,None,None,4.2,55.0,None,Ravi Varman,None
 2443868,Koi Mere Dil Se Poochhe,None,None,None,None,3.4,320.0,None,Vinay Shukla,None
 32896267,The Pioneers,None,None,None,None,None,None,None,Raymond Longford,None

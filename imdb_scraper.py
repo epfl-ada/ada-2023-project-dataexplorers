@@ -4,6 +4,7 @@ import re
 import requests
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 
 class ImdbScraper:
@@ -11,9 +12,10 @@ class ImdbScraper:
         """
         Initializes the ImdbScraper class
         """
+        service = Service(executable_path='./chromedriver/chromedriver.exe')
         chrome_options  = webdriver.ChromeOptions()
         chrome_options.add_argument("--lang=fr")
-        self.driver     = webdriver.Chrome(options=chrome_options, executable_path='./chromedriver/chromedriver.exe')
+        self.driver     = webdriver.Chrome(service=service, options=chrome_options)
     
     def close(self):
         """

@@ -1,4 +1,4 @@
-WikiID,Name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
+wikipedia_movie_id,name,global_revenue,budget,gross_domestic,opening_weekend,rating_score,number_of_ratings,watched_rank,producer,release_year
 2697545,The Unsuspected,None,None,None,None,7.2,3600.0,None,Michael Curtiz,None
 19378889,Two for Tonight,None,None,None,None,6.1,77.0,None,Frank Tuttle,None
 11353680,Zindagi,None,None,None,None,6.4,71.0,None,Ramanand Sagar,None
