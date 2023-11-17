@@ -108,3 +108,7 @@ movies”. To validate our results, it would be interesting to first apply our m
 2012 that are not featured in the dataset), then compare the recipe-generated score prediction for each movie with their
 ground-truth success score. We can also train a Neural Network and compare it with our recipe, to assess unseen
 dependencies. 
+
+# Timeline
+
+![timeline](timeline.png)
