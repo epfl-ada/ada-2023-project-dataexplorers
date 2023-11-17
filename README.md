@@ -108,12 +108,12 @@ To find the recipe for a good movie, we follow this methodology:
 The initial feature analysis gives insight on the importance of each feature individually. But this does not take into account how the features can complement each other
 in regards of predicting the movie score. Two strategies will be explored.
 
-- The first strategy is to clean features will be processed further (scaling, polynomial expansion ...) and fed to regression models that give insights
-about the importance of each feature, such as linear regression. 
-- Another strategy will be to define a threshold on the movie score above which a movie is classified as good. Models of classification such as the logistic regression
+- The first strategy is to process features further (scaling, polynomial expansion ...) and feed them into regression models that give insights
+about the importance our feature by looking at the model's weights, such as linear regression. 
+- Another strategy is to define a threshold on the movie score above which a movie is classified as good. Models of classification such as the logistic regression
 and other similar models will then be explored in the same way.
 
-These two methods will give us more insight about which combination of features give provide us the most information about a movie's score.
+These two methods will give us more insight about which combination of features provide us the most information about a movie's score.
 
 7) Finally, a recipe for good movies …
 
