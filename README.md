@@ -88,7 +88,7 @@ To find the recipe for a good movie, we follow this methodology:
     Only then can we define two classes of good and bad movies by defining a percentage threshold on movie scores.
 
 
-4) Find the effect of each feature on the movie’s success score.
+5) Find the effect of each feature on the movie’s success score.
 
    | Feature                             | Description                                                                                                                                                                   |
       |:------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -103,8 +103,19 @@ To find the recipe for a good movie, we follow this methodology:
    | Language                            | Look into the most successful movie languages.                                                                                                                                |
    | Country                             | Analyze whether certain movie settings are more appealing than others.                                                                                                        |
 
+6) Find the importance of the grouped importance of features
+    
+The initial feature analysis gives insight on the importance of each feature individually. But this does not take into account how the features can complement each other
+in regards of predicting the movie score. Two strategies will be explored.
 
-6) Finally, a recipe for good movies …
+- The first strategy is to clean features will be processed further (scaling, polynomial expansion ...) and fed to regression models that give insights
+about the importance of each feature, such as linear regression. 
+- Another strategy will be to define a threshold on the movie score above which a movie is classified as good. Models of classification such as the logistic regression
+and other similar models will then be explored in the same way.
+
+These two methods will give us more insight about which combination of features give provide us the most information about a movie's score.
+
+7) Finally, a recipe for good movies …
 
 From the above tests, we identify the features that affect the movie’s success the most thus defining a “recipe for good
 movies”. To validate our results, it would be interesting to first apply our model to a test set (movies published since
