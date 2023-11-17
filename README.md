@@ -74,13 +74,9 @@ To find the recipe for a good movie, we follow this methodology:
     These components can be computed with the Adjusted Movie Revenue (which we write define as $AMR$) and the movie rating (we will write as $MR$)
         
     We log-transform the data and define $x = \log(AMR)$ and $y = MR$
-        
-    $
-    \begin{cases}
-       BORC = \frac{x - \min(x)}{\max(x) - \min(x)}\\
-       RC = \frac{y - \min(y)}{\max(y) - \min(y)}
-    \end{cases}
-    $
+
+    $BORC = \frac{x - \min(x)}{\max(x) - \min(x)}$
+    $RC = \frac{y - \min(y)}{\max(y) - \min(y)}$
     
     As such, we have $BORC, RC \in [0, 1]$
     
