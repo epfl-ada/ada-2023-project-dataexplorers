@@ -15,7 +15,7 @@ In this project, we aim to tackle the following research questions:
 * Have movies become better over time?
 * Which features influence the success of a movie?
     * Considering: movie duration, language, geographical location of the setting, budget, genre, ethnic inclusivity,
-      fame of actors, fame of directors, movie plot sentiment analysis, and movie sequels.
+      fame of actors, fame of producers, movie plot sentiment analysis, and movie sequels.
 
 # Proposed additional datasets:
 
@@ -87,18 +87,18 @@ To find the recipe for a good movie, we follow this methodology:
 
 4) Find the effect of each feature on the movie’s success score.
 
-   | Feature                             | Description                                                                                                                                                                                                         |
-      |:------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Movie budget                        | Wonder if higher budgets are a gage of qualitative movies.                                                                                                                                                                                                             |
-   | Genres                              | Analyze the most successful genres.                                                                                                                                                                                                               |
-   | Ethnic diversity of the cast        | Get insight into the appeal of movies with a diverse cast.                                                                                                                                                                                                               |
-   | Sequels                             | Analyze the popularity of sequels as opposed to prequels.                                                                                                                                                                                                                |
-   | Actors' popularity                  | Define an actor's popularity as the sum of movie scores of the previous movies he acted in. Look at the correlation between the popularity of the cast and the movie score. |
-   | Movie directors' popularity         | Define the director's popularity as the sum of movie scores of the previous movies he directed and study its correlation with the movie score.                                                                                                                                                                                                               |
-   | Sentiment analysis of movie endings | Get insight into the interest in movies with happy endings (and other types of endings).                                                                                                                                                                                                             |
-   | Duration                            | Analyze the correlation between movie metadata and its success.                                                                                                                                                                                                               |
-   | Language                            | Look into the most successful movie languages.                                                                                                                                                                                                             |
-   | Country                             | Analyze whether certain movie settings are more appealing than others.                                                                                                                                                                                                               |
+   | Feature                             | Description                                                                                                                                                                   |
+      |:------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Movie budget                        | Wonder if higher budgets are a gage of qualitative movies.                                                                                                                    |
+   | Genres                              | Analyze the most successful genres.                                                                                                                                           |
+   | Ethnic diversity of the cast        | Get insight into the appeal of movies with a diverse cast.                                                                                                                    |
+   | Sequels                             | Analyze the popularity of sequels as opposed to prequels.                                                                                                                     |
+   | Actors' popularity                  | Define an actor's popularity as the sum of movie scores of the previous movies they acted in. Look at the correlation between the popularity of the cast and the movie score. |
+   | Movie producers' popularity         | Define the producer's popularity as the sum of movie scores of the previous movies they produced and study its correlation with the movie score.                              |
+   | Sentiment analysis of movie endings | Get insight into the interest in movies with happy endings (and other types of endings).                                                                                      |
+   | Duration                            | Analyze the correlation between movie metadata and its success.                                                                                                               |
+   | Language                            | Look into the most successful movie languages.                                                                                                                                |
+   | Country                             | Analyze whether certain movie settings are more appealing than others.                                                                                                        |
 
 
 6) Finally, a recipe for good movies …
