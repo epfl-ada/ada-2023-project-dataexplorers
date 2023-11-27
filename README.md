@@ -1,7 +1,7 @@
 # The formula for a perfect movie
 
 ### Abstract:
-‘The Formula for a Perfect Movie’ is a project that aims to uncover the complexity of cinematic success by examining diverse features, including ratings, revenue, genre, inclusivity, and more. Motivated by the nuanced nature of film achievement, we introduce a new Movie Score metric that considers ratings and revenue, providing a robust measure of a movie's success. By validating our findings on a dataset of unseen movies and comparing them with a neural network model, we aim to offer valuable insights into the secrets of successful filmmaking. By considering diverse and valuable data sources, this project seeks to explore the value that can be extracted thanks to Data Science. 
+The Formula for a Perfect Movie’ is a project that aims to uncover the complexity of cinematic success by examining diverse features, including ratings, revenue, genre, inclusivity, and more. Motivated by the nuanced nature of film achievement, we introduce a new Movie Score metric that considers ratings and revenue, providing a robust measure of a movie's success. By validating our findings on a dataset of unseen movies and comparing them with a neural network model, we aim to offer valuable insights into the secrets of successful filmmaking. By considering diverse and valuable data sources, this project seeks to explore the value that can be extracted thanks to Data Science. 
 
 In our data story, we guide our readers through the investigative processes that were utilized on our journey to detect the key influencers of good movies. As we unravel the insights embedded in the data, we hope that the reader will be encouraged towards introspection, thinking about what they believe makes a successful movie.
 
@@ -71,7 +71,7 @@ To find the recipe for a good movie, we follow this methodology:
    - $BORC$    : Box Office Revenue Component
    - $RC$      : Rating Component
 
-    These components can be computed with the Adjusted Movie Revenue (which we write define as $AMR$) and the movie rating (we will write as $MR$)
+    These components can be computed with the Adjusted Movie Revenue (we will write as $AMR$) and the movie rating (we will write as $MR$)
         
     We log-transform the data and define $x = \log(AMR)$ and $y = MR$
 
