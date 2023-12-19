@@ -1,7 +1,9 @@
 # The formula for a perfect movie
 
+# INSET OUR DATA STORY HERE:
+
 ### Abstract:
-The Formula for a Perfect Movie’ is a project that aims to uncover the complexity of cinematic success by examining diverse features, including ratings, revenue, genre, inclusivity, and more. Motivated by the nuanced nature of film achievement, we introduce a new Movie Score metric that considers ratings and revenue, providing a robust measure of a movie's success. By validating our findings on a dataset of unseen movies and comparing them with a neural network model, we aim to offer valuable insights into the secrets of successful filmmaking. By considering diverse and valuable data sources, this project seeks to explore the value that can be extracted thanks to Data Science. 
+The Formula for a Perfect Movie is a project that aims to uncover the complexity of cinematic success by examining diverse features, including ratings, revenue, genre, inclusivity, and more. Motivated by the nuanced nature of film achievement, we introduce a new Movie Score metric that considers ratings and revenue, providing a robust measure of a movie's success. We aim to offer valuable insights into the secrets of successful filmmaking. By considering diverse and valuable data sources, this project seeks to explore the value that can be extracted thanks to Data Science. 
 
 In our data story, we guide our readers through the investigative processes that were utilized on our journey to detect the key influencers of good movies. As we unravel the insights embedded in the data, we hope that the reader will be encouraged towards introspection, thinking about what they believe makes a successful movie.
 
@@ -12,7 +14,7 @@ In this project, we aim to tackle the following research questions:
 * How can we define the success of a movie?
 * Can we consider ratings and movie revenue to determine a success metric? Is there a correlation between ratings and
   movie revenue?
-* Have movies become better over time?
+* Is there a formula that successful movies follow?
 * Which features influence the success of a movie?
     * Considering: movie duration, language, geographical location of the setting, budget, genre, ethnic inclusivity,
       fame of actors, fame of producers, movie plot sentiment analysis, and movie sequels.
@@ -25,7 +27,7 @@ To answer our research questions, we will be using additional datasets:
   the [Wikidata](https://query.wikidata.org/sparql)
   website. The dataset generated includes information about the actors’ ethnicity.
 * Movie ratings are an important part of our project, yet we have no information about it in the given datasets.
-  Therefore, a bot that looks for each movie on [IMDb](https://www.imdb.com) and extracts relevant information (e.g.
+  Therefore, we have a bot that looks for each movie on [IMDb](https://www.imdb.com) and extracts relevant information (e.g.
   ratings, number of ratings,
   revenue in the United States and Canada, global revenue, and revenue on the week of release) was used:
 * To adjust box-office revenue for inflation, we fetched data from the [US Department of Labor Bureau
@@ -34,6 +36,7 @@ To answer our research questions, we will be using additional datasets:
 
 # Work Organization
 
+For P2:
 In order to realize this project, we collectively augmented and preprocessed the data. Then, when we noticed that there
 was little correlation between movie ratings and revenue, we established a movie success score that considered both.
 After that, each team member took a specialized aspect and examined if and how it shapes a film’s success or failure in
@@ -42,6 +45,7 @@ correlation with financial success and viewer opinions. Yara studied genre analy
 Eric cleaned and explored inclusivity. Anthony analyzed features like duration and language, while Anton focused on the influence of
 actors’ fame. Finally, we brought our insights together and started building the recipe for a good movie. 
 
+For P3: Eric finished the analyses that were not complete, notably for Sentiment and Gender Analysis. Anthony and Anton focused on making appealing and rigorous graphs, while also crafting the website. Aymeric and Yara built the data story from the analyses that were found. This harmonious work led to a final product that we are proud to submit!
 
 # Methods
 
@@ -85,7 +89,7 @@ To find the recipe for a good movie, we follow this methodology:
     
     $$Movie Score = 100\left(\alpha BORC + (1 - \alpha) RC \right)$$
     
-    Only then can we define two classes of good and bad movies by defining a percentage threshold on movie scores.
+    Only then can we define two classes of good and bad movies by defining a percentage threshold on movie scores. We chose alpha = 0.5 to consider both components equally.
 
 
 5) Find the effect of each feature on the movie’s success score.
@@ -94,7 +98,7 @@ To find the recipe for a good movie, we follow this methodology:
       |:------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | Movie budget                        | Wonder if higher budgets are a gage of qualitative movies.                                                                                                                    |
    | Genres                              | Analyze the most successful genres.                                                                                                                                           |
-   | Ethnic diversity of the cast        | Get insight into the appeal of movies with a diverse cast.                                                                                                                    |
+   | Ethnic & Gender diversity of the cast        | Get insight into the appeal of movies with a diverse cast.                                                                                                                    |
    | Sequels                             | Analyze the popularity of sequels as opposed to prequels.                                                                                                                     |
    | Actors' popularity                  | Define an actor's popularity as the sum of movie scores of the previous movies they acted in. Look at the correlation between the popularity of the cast and the movie score. |
    | Movie producers' popularity         | Define the producer's popularity as the sum of movie scores of the previous movies they produced and study its correlation with the movie score.                              |
@@ -103,25 +107,18 @@ To find the recipe for a good movie, we follow this methodology:
    | Language                            | Look into the most successful movie languages.                                                                                                                                |
    | Country                             | Analyze whether certain movie settings are more appealing than others.                                                                                                        |
 
-6) Find the importance of the grouped importance of features
+7) Find the importance of the grouped importance of features
     
 The initial feature analysis gives insight on the importance of each feature individually. But this does not take into account how the features can complement each other
 in regards of predicting the movie score. Two strategies will be explored.
 
-- The first strategy is to process features further (scaling, polynomial expansion ...) and feed them into regression models that give insights
-about the importance our feature by looking at the model's weights, such as linear regression. 
-- Another strategy is to define a threshold on the movie score above which a movie is classified as good. Models of classification such as the logistic regression
-and other similar models will then be explored in the same way.
-
-These two methods will give us more insight about which combination of features provide us the most information about a movie's score.
+Our strategy is to process features further (scaling, polynomial expansion ...) and feed them into regression models that give insights
+about the importance of our features by looking at the model's weights, such as linear regression. We want deep insights, not just singular patterns that influence the movie scores.
 
 7) Finally, a recipe for good movies …
 
 From the above tests, we identify the features that affect the movie’s success the most thus defining a “recipe for good
-movies”. To validate our results, it would be interesting to first apply our model to a test set (movies published since
-2012 that are not featured in the dataset), then compare the recipe-generated score prediction for each movie with their
-ground-truth success score. We can also train a Neural Network and compare it with our recipe, to assess unseen
-dependencies. 
+movies”.
 
 # Timeline
 
