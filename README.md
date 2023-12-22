@@ -155,7 +155,7 @@ In light of the feedback that we got for P2, we chose to remove from our roadmap
         <td>Anthony</td>
         <td>
             1) Created the script to scrape IMDb to get movie ratings and fill the missing data for revenue.<br>
-            2) Anylyzed small features and their correlation with the movie score.<br>
+            2) Analyzed small features and their correlation with the movie score.<br>
             3) Collaborated in creation of the website.
         </td>
     </tr>
