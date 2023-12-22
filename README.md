@@ -1,6 +1,7 @@
 # The formula for a perfect movie
 
-# INSET OUR DATA STORY HERE:
+# URL TO OUR DATA STORY
+https://ada-data-explorers.github.io/
 
 ### Abstract:
 
