@@ -54,10 +54,7 @@ Eric cleaned and explored inclusivity. Anthony analyzed features like duration a
 influence of
 actors’ fame. Finally, we brought our insights together and started building the recipe for a good movie.
 
-For P3: Eric finished the analyses that were not complete, notably for Sentiment and Gender Analysis. Anthony and Anton
-focused on making appealing and rigorous graphs, while also crafting the website. Aymeric and Yara built the data story
-from the analyses that were found. This harmonious work led to a final product that we are proud to submit!
-
+For P3 please view Contributions at the end of the README
 # Methods
 
 To find the recipe for a good movie, we follow this methodology:
@@ -110,26 +107,27 @@ To find the recipe for a good movie, we follow this methodology:
 
 5) Find the effect of each feature on the movie’s success score.
 
-   | Feature                             | Description                                                                                                                                                                   |
-            |:------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Movie budget                        | Wonder if higher budgets are a gage of qualitative movies.                                                                                                                    |
-   | Genres                              | Analyze the most successful genres.                                                                                                                                           |
-   | Ethnic & Gender diversity of the cast        | Get insight into the appeal of movies with a diverse cast.                                                                                                                    |
-   | Sequels                             | Analyze the popularity of sequels as opposed to prequels.                                                                                                                     |
-   | Actors' popularity                  | Define an actor's popularity as the sum of movie scores of the previous movies they acted in. Look at the correlation between the popularity of the cast and the movie score. |
-   | Movie producers' popularity         | Define the producer's popularity as the sum of movie scores of the previous movies they produced and study its correlation with the movie score.                              |
-   | Sentiment analysis of movie endings | Get insight into the interest in movies with happy endings (and other types of endings).                                                                                      |
-   | Duration                            | Analyze the correlation between movie metadata and its success.                                                                                                               |
-   | Language                            | Look into the most successful movie languages.                                                                                                                                |
-   | Country                             | Analyze whether certain movie settings are more appealing than others.                                                                                                        |
+  | Feature                               | Description                                                                                                    |
+|---------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Movie budget                          | Wonder if higher budgets are a gauge of qualitative movies.                                                    |
+| Genres                                | Analyze the most successful genres.                                                                           |
+| Ethnic & Gender diversity of the cast  | Get insight into the appeal of movies with a diverse cast.                                                     |
+| Sequels                               | Analyze the popularity of sequels as opposed to prequels.                                                      |
+| Actors' popularity                    | Define an actor's popularity as the mean of the 5 previous movies they acted in. Look at the correlation between the popularity of the cast and the movie score. |
+| Movie producers' popularity           | Define the producer's popularity as the mean of the 5 previous movies they produced and study its correlation with the movie score.                              |
+| Sentiment analysis of movie endings   | Get insight into the interest in movies with happy endings (and other types of endings).                      |
+| Duration                              | Analyze the correlation between movie metadata and its success.                                                |
+| Language                              | Look into the most successful movie languages.                                                                 |
+| Country                               | Analyze whether certain movie settings are more appealing than others.                                        |
+
 
 7) Find the importance of the grouped importance of features
 
 The initial feature analysis gives insight on the importance of each feature individually. But this does not take into
 account how the features can complement each other
-in regards of predicting the movie score. Two strategies will be explored.
+in regards of predicting the movie score.
 
-Our strategy is to process features further (scaling, polynomial expansion ...) and feed them into regression models
+Our strategy is to process features further (scaling, feature creation ...) and feed them into regression models
 that give insights
 about the importance of our features by looking at the model's weights, such as linear regression. We want deep
 insights, not just singular patterns that influence the movie scores.
@@ -140,7 +138,7 @@ From the above tests, we identify the features that affect the movie’s success
 movies”.
 
 # Timeline
-
+In light of the feedback that we got for P2, we chose to remove from our roadmap the validation with unseen data and the neural network.
 ![timeline](timeline.png)
 
 # Contributions
@@ -171,7 +169,7 @@ movies”.
     <tr>
         <td>Aymeric</td>
         <td>
-            1) Analyzed the sequels and prequels.<br>
+            1) Established the movie scoring system and analyzed the sequels and prequels.<br>
             2) Created and proofread the data story.<br>
             3) Collaborated in creation of the website.
         </td>
