@@ -1,6 +1,6 @@
 # The formula for a perfect movie
 
-# URL TO OUR DATA STORY
+# Url to our data story
 https://ada-data-explorers.github.io/
 
 ### Abstract:
@@ -179,7 +179,7 @@ In light of the feedback that we got for P2, we chose to remove from our roadmap
         <td>Eric</td>
         <td>
             1) Analyzed the inclusivity in movies.<br>
-            2) Analyzed the sentiment analysis of movie endings.<br>
+            2) Analyzed the sentiment of movie endings.<br>
             3) Collaborated in creation of the website.
         </td>
     </tr>
